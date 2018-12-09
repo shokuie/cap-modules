@@ -1,0 +1,151 @@
+{
+  "canceled": {
+    "parameter": null,
+    "code": "0"
+  },
+  "cancelFailed": {
+    "parameter": {
+      "type": "SEQUENCE",
+      "elements": [
+        {
+          "name": "problem",
+          "tag": 0,
+          "type": "ENUMERATED",
+          "values": [
+            {
+              "name": "unknownOperation",
+              "value": 0
+            },
+            {
+              "name": "tooLate",
+              "value": 1
+            },
+            {
+              "name": "operationNotCancellable",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "name": "operation",
+          "tag": 1,
+          "type": "INTEGER",
+          "qualifiers": "(-128..127)"
+        }
+      ]
+    },
+    "code": "1"
+  },
+  "eTCFailed": {
+    "parameter": null,
+    "code": "3"
+  },
+  "improperCallerResponse": {
+    "parameter": null,
+    "code": "4"
+  },
+  "missingCustomerRecord": {
+    "parameter": null,
+    "code": "6"
+  },
+  "missingParameter": {
+    "parameter": null,
+    "code": "7"
+  },
+  "parameterOutOfRange": {
+    "parameter": null,
+    "code": "8"
+  },
+  "requestedInfoError": {
+    "parameter": {
+      "type": "ENUMERATED",
+      "values": [
+        {
+          "name": "unknownRequestedInfo",
+          "value": 1
+        },
+        {
+          "name": "requestedInfoNotAvailable",
+          "value": 2
+        }
+      ]
+    },
+    "code": "10"
+  },
+  "systemFailure": {
+    "parameter": {
+      "type": "ENUMERATED",
+      "values": [
+        {
+          "name": "unavailableResources",
+          "value": 0
+        },
+        {
+          "name": "componentFailure",
+          "value": 1
+        },
+        {
+          "name": "basicCallProcessingException",
+          "value": 2
+        },
+        {
+          "name": "resourceStatusFailure",
+          "value": 3
+        },
+        {
+          "name": "endUserFailure",
+          "value": 4
+        }
+      ]
+    },
+    "code": "11"
+  },
+  "taskRefused": {
+    "parameter": {
+      "type": "ENUMERATED",
+      "values": [
+        {
+          "name": "generic",
+          "value": 0
+        },
+        {
+          "name": "unobtainable",
+          "value": 1
+        },
+        {
+          "name": "congestion",
+          "value": 2
+        }
+      ]
+    },
+    "code": "12"
+  },
+  "unavailableResource": {
+    "parameter": null,
+    "code": "13"
+  },
+  "unexpectedComponentSequence": {
+    "parameter": null,
+    "code": "14"
+  },
+  "unexpectedDataValue": {
+    "parameter": null,
+    "code": "15"
+  },
+  "unexpectedParameter": {
+    "parameter": null,
+    "code": "16"
+  },
+  "unknownLegID": {
+    "parameter": null,
+    "code": "17"
+  },
+  "unknownCSID": {
+    "parameter": null,
+    "code": "51"
+  },
+  "unknownPDPID": {
+    "parameter": null,
+    "code": "50"
+  }
+}

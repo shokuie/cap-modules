@@ -1,0 +1,191 @@
+{
+  "CAMEL-AChBillingChargingCharacteristics": 
+  {
+    "name":"timeDurationCharging",
+    "tag": 0,
+    "type": "SEQUENCE",
+    "elements": 
+    [
+      {
+        "name": "maxCallPeriodDuration",
+        "tag": 0,
+        "type": "INTEGER",
+        "qualifiers": "(1..864000)"
+      },
+      {
+        "name": "releaseIfdurationExceeded",
+        "tag": 1,
+        "type": "BOOLEAN",
+        "qualifiers": "DEFAULT FALSE"
+      },
+      {
+        "name": "tariffSwitchInterval",
+        "tag": 2,
+        "type": "INTEGER",
+        "qualifiers": "(1..86400)",
+        "optional": true
+      },
+      {
+        "name": "audibleIndicator",
+        "tag": 3,
+        "type": "CHOICE",
+        "qualifiers": "DEFAULT tone",
+        "elements": [
+          {
+            "name": "tone",
+            "type": "BOOLEAN"
+          },
+          {
+            "name": "burstList",
+            "tag": 1,
+            "type": "SEQUENCE",
+            "elements": [
+              {
+                "name": "warningPeriod",
+                "tag": 0,
+                "type": "INTEGER",
+                "qualifiers": "(1..1200)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "CAMEL-CallResult": 
+  {
+    "name": "timeDurationChargingResult",
+    "tag": 0,
+    "type": "SEQUENCE",
+    "elements": [
+      {
+        "name": "partyToCharge",
+        "tag": 0,
+        "type": "CHOICE",
+        "elements": [
+          {
+            "name": "receivingSideID",
+            "tag": 1,
+            "type": "OCTET STRING",
+            "qualifiers": "(SIZE(1))"
+          }
+        ]
+      },
+      {
+        "name": "timeInformation",
+        "tag": 1,
+        "type": "CHOICE",
+        "elements": [
+          {
+            "name": "timeIfNoTariffSwitch",
+            "tag": 0,
+            "type": "INTEGER",
+            "qualifiers": "(0..864000)"
+          },
+          {
+            "name": "timeIfTariffSwitch",
+            "tag": 1,
+            "type": "SEQUENCE",
+            "elements": [
+              {
+                "name": "timeSinceTariffSwitch",
+                "tag": 0,
+                "type": "INTEGER",
+                "qualifiers": "(0..864000)"
+              },
+              {
+                "name": "tariffSwitchInterval",
+                "tag": 1,
+                "type": "INTEGER",
+                "qualifiers": "(1..864000)",
+                "optional": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "legActive",
+        "tag": 2,
+        "type": "BOOLEAN",
+        "qualifiers": "DEFAULT TRUE"
+      },
+      {
+        "name": "callLegReleasedAtTcpExpiry",
+        "tag": 3,
+        "type": "NULL",
+        "optional": true
+      },
+      {
+        "name": "extensions",
+        "tag": 4,
+        "type": "SEQUENCE",
+        "qualifiers": "SIZE(1..10)",
+        "ofElement": {
+          "type": "SEQUENCE",
+          "elements": [
+            {
+              "name": "type",
+              "type": "EXTENSION",
+              "qualifiers": ".&id({SupportedExtensions})"
+            },
+            {
+              "name": "criticality",
+              "type": "ENUMERATED",
+              "qualifiers": "DEFAULT ignore",
+              "values": [
+                {
+                  "name": "ignore",
+                  "value": 0
+                },
+                {
+                  "name": "abort",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "value",
+              "tag": 1,
+              "type": "EXTENSION",
+              "qualifiers": ".&ExtensionType({SupportedExtensions}{@type})"
+            }
+          ]
+        },
+        "optional": true
+      },
+      {
+        "name": "aChChargingAddress",
+        "tag": 5,
+        "type": "CHOICE",
+        "elements": [
+          {
+            "name": "legID",
+            "tag": 2,
+            "type": "CHOICE",
+            "elements": [
+              {
+                "name": "sendingSideID",
+                "tag": 0,
+                "type": "OCTET STRING",
+                "qualifiers": "(SIZE(1))"
+              },
+              {
+                "name": "receivingSideID",
+                "tag": 1,
+                "type": "OCTET STRING",
+                "qualifiers": "(SIZE(1))"
+              }
+            ]
+          },
+          {
+            "name": "srfConnection",
+            "tag": 50,
+            "type": "INTEGER",
+            "qualifiers": "(1..127)"
+          }
+        ]
+      }
+    ]
+  }
+}

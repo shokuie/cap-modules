@@ -1,0 +1,35 @@
+{
+  "name": "cap-modules",
+  "version": "0.0.1",
+  "description": "Expanded ASN.1 modules for CAMEL Application Part (CAP) (ETSI TS 129 078) in JSON format",
+  "main": "convert.js",
+  "scripts": {
+    "convert": "node convert \"exp/camel-v2.exp\" > \"dist/CAP-Phase4-V2.asn.json\"",
+    "convert-min": "node convert \"exp/camel-v2.exp\" --min > \"dist/CAP-Phase4-V2.asn.min.json\""
+  },
+  "devDependencies": {
+    "get-stdin": "^5.0.1",
+    "minimist": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shokuie/cap-modules.git"
+  },
+  "keywords": [
+    "ss7",
+    "tcap",
+    "cap",
+    "CAMEL",
+    "3GPP",
+    "ETSI",
+    "TS",
+    "129",
+    "078"
+  ],
+  "author": "Mohammad Shokuienia <shokuie@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shokuie/cap-modules/issues"
+  },
+  "homepage": "https://github.com/shokuie/cap-modules#readme"
+}
