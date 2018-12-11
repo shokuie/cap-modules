@@ -2848,7 +2848,7 @@ ConnectToResourceArg {PARAMETERS-BOUND : bound} ::= SEQUENCE {
 	...
 	}
 
-continue OPERATION ::= {
+continue {PARAMETERS-BOUND : bound} OPERATION ::= {
 	RETURN RESULT	FALSE
 	ALWAYS RESPONDS	FALSE
 	CODE			opcode-continue}

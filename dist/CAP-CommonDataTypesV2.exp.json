@@ -54,44 +54,37 @@
   },
   "CAMEL-AChBillingChargingCharacteristicsV2": 
   {
-    "name":"timeDurationCharging",
-    "tag": 0,
-    "type": "SEQUENCE",
-    "elements": [
+      "name": "timeDurationCharging",
+      "tag": 0,
+      "type": "SEQUENCE",
+      "elements": [
         {
-          "name": "timeDurationCharging",
+          "name": "maxCallPeriodDuration",
           "tag": 0,
+          "type": "INTEGER",
+          "qualifiers": "(1..864000)"
+        },
+        {
+          "name": "releaseIfdurationExceeded",
+          "tag": 1,
           "type": "SEQUENCE",
           "elements": [
             {
-              "name": "maxCallPeriodDuration",
-              "tag": 0,
-              "type": "INTEGER",
-              "qualifiers": "(1..864000)"
-            },
-            {
-              "name": "releaseIfdurationExceeded",
-              "tag": 1,
-              "type": "SEQUENCE",
-              "elements": [
-                {
-                  "name": "tone",
-                  "type": "BOOLEAN",
-                  "qualifiers": "DEFAULT FALSE"
-                }
-              ],
-              "optional": true
-            },
-            {
-              "name": "tariffSwitchInterval",
-              "tag": 2,
-              "type": "INTEGER",
-              "qualifiers": "(1..86400)",
-              "optional": true
+              "name": "tone",
+              "type": "BOOLEAN",
+              "qualifiers": "DEFAULT FALSE"
             }
-          ]
+          ],
+          "optional": true
+        },
+        {
+          "name": "tariffSwitchInterval",
+          "tag": 2,
+          "type": "INTEGER",
+          "qualifiers": "(1..86400)",
+          "optional": true
         }
-    ]
+      ]
   },
   "CAMEL-CallResult": 
   {
